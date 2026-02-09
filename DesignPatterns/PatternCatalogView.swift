@@ -14,9 +14,13 @@ struct PatternCatalogView: View {
 
     var body: some View {
         NavigationStack {
-            List() {
+            List(viewModel.sections) { section in
                 Section {
-                    
+                    ForEach(section.topics, id: \.titleKey) { topic in
+                        Text(LocalizedStringKey(topic.titleKey))
+                    }
+                } header: {
+                    Text(LocalizedStringKey(section.title))
                 } footer: {
                     Text("about.attribution.message")
                         .font(.footnote)

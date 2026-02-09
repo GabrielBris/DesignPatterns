@@ -13,14 +13,25 @@ protocol PatternItemKeys {
     var descriptionKey: String { get }
 }
 
-struct PatternCatalog: Identifiable, Hashable {
+struct PatternCatalog: Identifiable {
     let id = UUID()
     let title: String
+    let topics: [any PatternItemKeys]
 
     enum POOPillar: String, CaseIterable, PatternItemKeys {
         case abstraction, encapsulation, inheritance, polymorphism
 
         var titleKey: String { "pillars.\(rawValue).title" }
         var descriptionKey: String { "pillars.\(rawValue).description" }
+    }
+}
+
+extension PatternCatalog: Equatable & Hashable {
+    static func == (lhs: PatternCatalog, rhs: PatternCatalog) -> Bool {
+        lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
     }
 }

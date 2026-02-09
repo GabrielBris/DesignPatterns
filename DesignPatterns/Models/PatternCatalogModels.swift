@@ -9,5 +9,5 @@
 import Foundation
 
 enum PatternData {
-    static let poo_pillars = PatternCatalog(title: "patterncatalog.title")
+    static let poo_pillars = PatternCatalog(title: "pillars.title", topics: PatternCatalog.POOPillar.allCases)
 }

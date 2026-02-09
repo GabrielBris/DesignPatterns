@@ -10,12 +10,16 @@
 import Foundation
 
 protocol PatternCatalogViewModelProtocol {
-    var sections: [[any CaseIterable]] { get }
+    var sections: [PatternCatalog] { get }
 }
 
 @Observable
 class PatternCatalogViewModel: PatternCatalogViewModelProtocol {
-    private(set) var sections: [[any CaseIterable]] = [
-        PatternCatalog.POOPillar.allCases
+    private(set) var sections: [PatternCatalog] = [
+        PatternData.poo_pillars,
+        PatternData.poo_pillars,
+        PatternData.poo_pillars,
+        PatternData.poo_pillars,
+        PatternData.poo_pillars
     ]
 }
