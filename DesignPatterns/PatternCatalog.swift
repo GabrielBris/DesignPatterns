@@ -8,6 +8,19 @@
 //
 import Foundation
 
-struct  PatternCatalog {
-    
+protocol PatternItemKeys {
+    var titleKey: String { get }
+    var descriptionKey: String { get }
+}
+
+struct PatternCatalog: Identifiable, Hashable {
+    let id = UUID()
+    let title: String
+
+    enum POOPillar: String, CaseIterable, PatternItemKeys {
+        case abstraction, encapsulation, inheritance, polymorphism
+
+        var titleKey: String { "pillars.\(rawValue).title" }
+        var descriptionKey: String { "pillars.\(rawValue).description" }
+    }
 }
