@@ -19,7 +19,8 @@ protocol PatternCatalogViewModelProtocol {
 class PatternCatalogViewModel: PatternCatalogViewModelProtocol {
     private(set) var sections: [PatternCatalog] = [
         PatternData.poo_pillars,
-        PatternData.relation_among_objects
+        PatternData.relation_among_objects,
+        PatternData.solid_principles
     ]
     
     func tryMeButtonTapped(at pattern: any PatternItemKeys) {
@@ -37,6 +38,14 @@ class PatternCatalogViewModel: PatternCatalogViewModelProtocol {
             case .association: RelationAmongObjects.runAssociationExample()
             case .aggregation: RelationAmongObjects.runAgregationExample()
             case .composition: RelationAmongObjects.runCompositionExample()
+            }
+        case let solid_principles as PatternCatalog.SOLIDPrinciples:
+            switch solid_principles {
+            case .single_responsibility: break
+            case .open_closed: break
+            case .liskov_substitution: break
+            case .interface_segregation: break
+            case .dependency_injection: break
             }
         default: break
         }

@@ -11,4 +11,5 @@ import Foundation
 enum PatternData {
     static let poo_pillars = PatternCatalog(title: "pillars.title", topics: PatternCatalog.POOPillar.allCases)
     static let relation_among_objects = PatternCatalog(title: "relationamongobjects.title", topics: PatternCatalog.RelationAmongObjects.allCases)
+    static let solid_principles = PatternCatalog(title: "solidprinciples.title", topics: PatternCatalog.SOLIDPrinciples.allCases)
 }

@@ -37,6 +37,7 @@ class RelationAmongObjects {
     static func runCompositionExample() {
         var homeView: HomeView? = HomeView()
         homeView = nil
+        print("HomeView's description: ", homeView.debugDescription)
     }
 }
 

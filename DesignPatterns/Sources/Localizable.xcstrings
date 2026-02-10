@@ -335,7 +335,7 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Dependencia"
           }
         }
@@ -354,6 +354,57 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Relación entre objetos"
+          }
+        }
+      }
+    },
+    "solidprinciples.single_responsibility.description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Try to make each class responsible for a single part of the functionality provided by the software, and make that responsibility completely encapsulated by (you can also say hidden within) the class.\""
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“In­te­n­ta hacer a cada clase re­s­po­n­sa­b­le de una única parte de la fu­n­cio­na­li­dad pro­po­r­cio­na­da por el so­f­t­wa­re, y haz que esa re­s­po­n­sa­bi­li­dad quede to­ta­l­me­n­te en­ca­p­su­la­da por (ta­m­bién pue­des decir es­co­n­di­da de­n­t­ro de) la clase.“"
+          }
+        }
+      }
+    },
+    "solidprinciples.single_responsibility.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Single Re­s­po­n­si­bi­li­ty Pri­n­ci­p­le"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pri­n­ci­pio de re­s­po­n­sa­bi­li­dad única"
+          }
+        }
+      }
+    },
+    "solidprinciples.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SOLID Principles"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Principios SOLID"
           }
         }
       }
