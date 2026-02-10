@@ -204,6 +204,159 @@
           }
         }
       }
+    },
+    "relationamongobjects.aggregation.description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Normally, with aggregation, an object 'has' a group of other objects and serves as a container or collection. The component can exist without the container and can be linked to several containers at the same time.\""
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“No­r­ma­l­me­n­te, con la ag­re­ga­ción, un ob­je­to “tiene” un grupo de otros ob­je­tos y sirve como co­n­te­ne­dor o co­le­c­ción. El co­m­po­ne­n­te puede exi­s­tir sin el co­n­te­ne­dor y puede vi­n­cu­lar­se a va­rios co­n­te­ne­do­res al mismo tie­m­po. ”"
+          }
+        }
+      }
+    },
+    "relationamongobjects.aggregation.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aggregation"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Agregación"
+          }
+        }
+      }
+    },
+    "relationamongobjects.association.description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Association can be seen as a specialized type of dependency, in which an object always has access to the objects with which it interacts, while simple dependency does not establish a permanent link between objects.\""
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“La aso­cia­ción puede verse como un tipo es­pe­cia­li­za­do de de­pe­n­de­n­cia, en la que un ob­je­to sie­m­p­re tiene ac­ce­so a los ob­je­tos con los que in­ter­ac­túa, mie­n­t­ras que la de­pe­n­de­n­cia si­m­p­le no es­ta­b­le­ce un ví­ncu­lo pe­r­ma­ne­n­te entre los objetos.”"
+          }
+        }
+      }
+    },
+    "relationamongobjects.association.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Association"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Asociación"
+          }
+        }
+      }
+    },
+    "relationamongobjects.composition.description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Composition is a specific type of aggregation in which an object is composed of one or more instances of the other. The difference between this and other relationships is that the component can only exist as part of the container.\""
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“La co­m­po­si­ción es un tipo es­pe­cí­fi­co de ag­re­ga­ción en la que un ob­je­to se co­m­po­ne de una o más in­s­ta­n­cias del otro. La di­fe­re­n­cia entre ésta y otras re­la­cio­nes está en que el co­m­po­ne­n­te sólo puede exi­s­tir como parte del co­n­te­ne­dor. ”"
+          }
+        }
+      }
+    },
+    "relationamongobjects.composition.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Composition"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Composición"
+          }
+        }
+      }
+    },
+    "relationamongobjects.dependence.description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"You can make a dependency weaker by making your code depend on interfaces or abstract classes instead of concrete classes.\""
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“Pue­des hacer más débil una de­pe­n­de­n­cia ha­cie­n­do que tu có­di­go de­pe­n­da de in­te­r­fa­ces o cla­ses ab­s­t­ra­c­tas en lugar de cla­ses concretas.”"
+          }
+        }
+      }
+    },
+    "relationamongobjects.dependence.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dependence"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dependencia"
+          }
+        }
+      }
+    },
+    "relationamongobjects.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Relation among objects"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Relación entre objetos"
+          }
+        }
+      }
     }
   },
   "version" : "1.1"

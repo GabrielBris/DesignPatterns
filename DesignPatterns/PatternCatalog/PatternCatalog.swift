@@ -24,6 +24,13 @@ struct PatternCatalog: Identifiable {
         var titleKey: String { "pillars.\(rawValue).title" }
         var descriptionKey: String { "pillars.\(rawValue).description" }
     }
+    
+    enum RelationAmongObjects: String, CaseIterable, PatternItemKeys {
+        case dependence, aggregation, composition, association
+        
+        var titleKey: String { "relationamongobjects.\(rawValue).title" }
+        var descriptionKey: String { "relationamongobjects.\(rawValue).description" }
+    }
 }
 
 extension PatternCatalog: Equatable & Hashable {

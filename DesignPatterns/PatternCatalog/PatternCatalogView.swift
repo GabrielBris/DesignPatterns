@@ -50,6 +50,7 @@ private struct PatternCatalogCell: View {
                         onButtonTap()
                     }
                     .buttonStyle(.automatic)
+                    .foregroundStyle(Color.green)
                 }
             }
         }

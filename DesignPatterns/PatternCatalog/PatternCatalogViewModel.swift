@@ -19,10 +19,7 @@ protocol PatternCatalogViewModelProtocol {
 class PatternCatalogViewModel: PatternCatalogViewModelProtocol {
     private(set) var sections: [PatternCatalog] = [
         PatternData.poo_pillars,
-        PatternData.poo_pillars,
-        PatternData.poo_pillars,
-        PatternData.poo_pillars,
-        PatternData.poo_pillars
+        PatternData.relation_among_objects
     ]
     
     func tryMeButtonTapped(at pattern: any PatternItemKeys) {
