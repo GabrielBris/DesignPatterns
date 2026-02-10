@@ -1,0 +1,363 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "about.attribution.message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This project is educational material based on:\n“Dive Into Design Patterns\" by Alexander Shvets\n\nThis content is for personal learning only and has no commercial purpose.\nAll rights of the original content belong to the author. [View book](https://refactoring.guru/design-patterns)"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Este proyecto es material educativo basado en:\n\"Sumérgete en los Patrones de Diseño\" por Alexander Shvets\n\nEste contenido es solo para aprendizaje personal y no tiene fines comerciales.\nTodos los derechos del contenido original pertenecen al autor. [Ver libro](https://refactoring.guru/es/design-patterns)"
+          }
+        }
+      }
+    },
+    "patterncatalog.cell.trymebutton" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Try me!"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pruébame!"
+          }
+        }
+      }
+    },
+    "patterncatalog.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Catalog"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Explorar"
+          }
+        }
+      }
+    },
+    "pillars.abstraction.description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Abstraction is the model of a real-world object or phenomenon, limited to a specific context, that represents all the data relevant to this context with great precision, omitting the rest.\""
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“La Ab­s­t­ra­c­ción es el mo­de­lo de un ob­je­to o fe­nó­meno del mundo real, li­mi­ta­do a un co­n­te­x­to es­pe­cí­fi­co, que re­p­re­se­n­ta todos los datos re­le­va­n­tes a este co­n­te­x­to con gran pre­ci­sión, omi­tie­n­do el resto.”"
+          }
+        }
+      }
+    },
+    "pillars.abstraction.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abstraction"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abstracción"
+          }
+        }
+      }
+    },
+    "pillars.encapsulation.description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Encapsulation is the ability that an object has to hide parts of its state and behavior from other objects, exposing only a limited interface to the rest of the program.\""
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“La en­ca­p­su­la­ción es la ca­pa­ci­dad que tiene un ob­je­to de es­co­n­der pa­r­tes de su es­ta­do y co­m­po­r­ta­mie­n­to de otros ob­je­tos, ex­po­nie­n­do úni­ca­me­n­te una in­te­r­faz li­mi­ta­da al resto del programa.”"
+          }
+        }
+      }
+    },
+    "pillars.encapsulation.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Encapsulation"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Encapsulación"
+          }
+        }
+      }
+    },
+    "pillars.inheritance.description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"If you want to create a class slightly different from an existing one, there is no need to duplicate the code. Instead, you extend the existing class and place the additional functionality within a resulting subclass that inherits the fields and methods of the superclass.\""
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“Si quie­res crear una clase li­ge­ra­me­n­te di­fe­re­n­te a una ya exi­s­te­n­te, no hay ne­ce­si­dad de du­p­li­car el có­di­go. En su lugar, ex­tie­n­des la clase exi­s­te­n­te y co­lo­cas la fu­n­cio­na­li­dad adi­cio­nal de­n­t­ro de una su­b­c­la­se re­su­l­ta­n­te que he­re­da los ca­m­pos y mé­to­dos de la superclase.”"
+          }
+        }
+      }
+    },
+    "pillars.inheritance.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inheritance"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Herencia"
+          }
+        }
+      }
+    },
+    "pillars.polymorphism.description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Polymorphism is the ability that a program has to detect the true class of an object and invoke its implementation, even though its real type is unknown in the current context.\""
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“El po­li­mo­r­fi­s­mo es la ca­pa­ci­dad que tiene un pro­g­ra­ma de de­te­c­tar la ve­r­da­de­ra clase de un ob­je­to e in­vo­car su im­p­le­me­n­ta­ción, in­c­lu­so au­n­que su tipo real sea de­s­co­no­ci­do en el co­n­te­x­to actual.”"
+          }
+        }
+      }
+    },
+    "pillars.polymorphism.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Polymorphism"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Polimorfismo"
+          }
+        }
+      }
+    },
+    "pillars.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The pillars of the OOP"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Los pilares de la POO"
+          }
+        }
+      }
+    },
+    "relationamongobjects.aggregation.description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Normally, with aggregation, an object 'has' a group of other objects and serves as a container or collection. The component can exist without the container and can be linked to several containers at the same time.\""
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“No­r­ma­l­me­n­te, con la ag­re­ga­ción, un ob­je­to “tiene” un grupo de otros ob­je­tos y sirve como co­n­te­ne­dor o co­le­c­ción. El co­m­po­ne­n­te puede exi­s­tir sin el co­n­te­ne­dor y puede vi­n­cu­lar­se a va­rios co­n­te­ne­do­res al mismo tie­m­po. ”"
+          }
+        }
+      }
+    },
+    "relationamongobjects.aggregation.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aggregation"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Agregación"
+          }
+        }
+      }
+    },
+    "relationamongobjects.association.description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Association can be seen as a specialized type of dependency, in which an object always has access to the objects with which it interacts, while simple dependency does not establish a permanent link between objects.\""
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“La aso­cia­ción puede verse como un tipo es­pe­cia­li­za­do de de­pe­n­de­n­cia, en la que un ob­je­to sie­m­p­re tiene ac­ce­so a los ob­je­tos con los que in­ter­ac­túa, mie­n­t­ras que la de­pe­n­de­n­cia si­m­p­le no es­ta­b­le­ce un ví­ncu­lo pe­r­ma­ne­n­te entre los objetos.”"
+          }
+        }
+      }
+    },
+    "relationamongobjects.association.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Association"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Asociación"
+          }
+        }
+      }
+    },
+    "relationamongobjects.composition.description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Composition is a specific type of aggregation in which an object is composed of one or more instances of the other. The difference between this and other relationships is that the component can only exist as part of the container.\""
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“La co­m­po­si­ción es un tipo es­pe­cí­fi­co de ag­re­ga­ción en la que un ob­je­to se co­m­po­ne de una o más in­s­ta­n­cias del otro. La di­fe­re­n­cia entre ésta y otras re­la­cio­nes está en que el co­m­po­ne­n­te sólo puede exi­s­tir como parte del co­n­te­ne­dor. ”"
+          }
+        }
+      }
+    },
+    "relationamongobjects.composition.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Composition"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Composición"
+          }
+        }
+      }
+    },
+    "relationamongobjects.dependence.description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"You can make a dependency weaker by making your code depend on interfaces or abstract classes instead of concrete classes.\""
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“Pue­des hacer más débil una de­pe­n­de­n­cia ha­cie­n­do que tu có­di­go de­pe­n­da de in­te­r­fa­ces o cla­ses ab­s­t­ra­c­tas en lugar de cla­ses concretas.”"
+          }
+        }
+      }
+    },
+    "relationamongobjects.dependence.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dependency"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Dependencia"
+          }
+        }
+      }
+    },
+    "relationamongobjects.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Relation among objects"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Relación entre objetos"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.1"
+}
