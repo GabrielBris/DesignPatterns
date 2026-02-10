@@ -47,7 +47,7 @@ final class PatternCatalogModelsTests: XCTestCase {
             switch relationType {
             case .dependence:
                 descExpected = "\"You can make a dependency weaker by making your code depend on interfaces or abstract classes instead of concrete classes.\""
-                XCTAssertTrue(isPatternItemsMatching(itemKeys: relationType, titleExpected: "Dependence", descExpected: descExpected))
+                XCTAssertTrue(isPatternItemsMatching(itemKeys: relationType, titleExpected: "Dependency", descExpected: descExpected))
             case .association:
                 descExpected = "\"Association can be seen as a specialized type of dependency, in which an object always has access to the objects with which it interacts, while simple dependency does not establish a permanent link between objects.\""
                 XCTAssertTrue(isPatternItemsMatching(itemKeys: relationType, titleExpected: "Association", descExpected: descExpected))
@@ -57,6 +57,23 @@ final class PatternCatalogModelsTests: XCTestCase {
             case .composition:
                 descExpected = "\"Composition is a specific type of aggregation in which an object is composed of one or more instances of the other. The difference between this and other relationships is that the component can only exist as part of the container.\""
                 XCTAssertTrue(isPatternItemsMatching(itemKeys: relationType, titleExpected: "Composition", descExpected: descExpected))
+            }
+        }
+        
+        // SOLID
+        patternCatalog = PatternData.solid_principles
+        patternCatalogTitle = localized(patternCatalog.title)
+        
+        XCTAssertEqual(patternCatalogTitle, "SOLID Principles")
+        PatternCatalog.SOLIDPrinciples.allCases.forEach { principle in
+            switch principle {
+            case .single_responsibility:
+                descExpected = "\"Try to make each class responsible for a single part of the functionality provided by the software, and make that responsibility completely encapsulated by (you can also say hidden within) the class.\""
+                XCTAssertTrue(isPatternItemsMatching(itemKeys: principle, titleExpected: "Single Re­s­po­n­si­bi­li­ty Pri­n­ci­p­le", descExpected: descExpected))
+            case .open_closed: break
+            case .liskov_substitution: break
+            case .interface_segregation: break
+            case .dependency_injection: break
             }
         }
     }
