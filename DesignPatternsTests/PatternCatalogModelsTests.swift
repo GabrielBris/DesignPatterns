@@ -16,6 +16,7 @@ final class PatternCatalogModelsTests: XCTestCase {
         var patternCatalogTitle: String
         var descExpected: String = ""
         
+        // POO Pillar
         patternCatalog = PatternData.poo_pillars
         patternCatalogTitle = localized(patternCatalog.title)
         
@@ -34,6 +35,28 @@ final class PatternCatalogModelsTests: XCTestCase {
             case .polymorphism:
                 descExpected = "\"Polymorphism is the ability that a program has to detect the true class of an object and invoke its implementation, even though its real type is unknown in the current context.\""
                 XCTAssertTrue(isPatternItemsMatching(itemKeys: pillar, titleExpected: "Polymorphism", descExpected: descExpected))
+            }
+        }
+        
+        // Relation among objects
+        patternCatalog = PatternData.relation_among_objects
+        patternCatalogTitle = localized(patternCatalog.title)
+        
+        XCTAssertEqual(patternCatalogTitle, "Relation among objects")
+        PatternCatalog.RelationAmongObjects.allCases.forEach { relationType in
+            switch relationType {
+            case .dependence:
+                descExpected = "\"You can make a dependency weaker by making your code depend on interfaces or abstract classes instead of concrete classes.\""
+                XCTAssertTrue(isPatternItemsMatching(itemKeys: relationType, titleExpected: "Dependence", descExpected: descExpected))
+            case .association:
+                descExpected = "\"Association can be seen as a specialized type of dependency, in which an object always has access to the objects with which it interacts, while simple dependency does not establish a permanent link between objects.\""
+                XCTAssertTrue(isPatternItemsMatching(itemKeys: relationType, titleExpected: "Association", descExpected: descExpected))
+            case .aggregation:
+                descExpected = "\"Normally, with aggregation, an object 'has' a group of other objects and serves as a container or collection. The component can exist without the container and can be linked to several containers at the same time.\""
+                XCTAssertTrue(isPatternItemsMatching(itemKeys: relationType, titleExpected: "Aggregation", descExpected: descExpected))
+            case .composition:
+                descExpected = "\"Composition is a specific type of aggregation in which an object is composed of one or more instances of the other. The difference between this and other relationships is that the component can only exist as part of the container.\""
+                XCTAssertTrue(isPatternItemsMatching(itemKeys: relationType, titleExpected: "Composition", descExpected: descExpected))
             }
         }
     }
