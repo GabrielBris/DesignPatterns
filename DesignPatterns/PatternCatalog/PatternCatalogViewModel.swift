@@ -31,6 +31,13 @@ class PatternCatalogViewModel: PatternCatalogViewModelProtocol {
             case .inheritance: OOPPillarTopic.runInheritanceExample()
             case .polymorphism: OOPPillarTopic.runPolymorphismExample()
             }
+        case let relation_among_objects as PatternCatalog.RelationAmongObjects:
+            switch relation_among_objects {
+            case .dependence: RelationAmongObjects.runDependenceExample()
+            case .association: RelationAmongObjects.runAssociationExample()
+            case .aggregation: RelationAmongObjects.runAgregationExample()
+            case .composition: RelationAmongObjects.runCompositionExample()
+            }
         default: break
         }
     }
