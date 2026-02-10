@@ -29,10 +29,10 @@ class PatternCatalogViewModel: PatternCatalogViewModelProtocol {
         switch pattern {
         case let poo_pillars as PatternCatalog.POOPillar:
             switch poo_pillars {
-            case .abstraction: break
-            case .encapsulation: break
-            case .inheritance: break
-            case .polymorphism: break
+            case .abstraction: OOPPillarTopic.runAbstractionExample()
+            case .encapsulation: OOPPillarTopic.runEncapsulationExample()
+            case .inheritance: OOPPillarTopic.runInheritanceExample()
+            case .polymorphism: OOPPillarTopic.runPolymorphismExample()
             }
         default: break
         }
