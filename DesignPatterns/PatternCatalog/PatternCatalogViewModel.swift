@@ -42,7 +42,7 @@ class PatternCatalogViewModel: PatternCatalogViewModelProtocol {
         case let solid_principles as PatternCatalog.SOLIDPrinciples:
             switch solid_principles {
             case .single_responsibility: SolidPrinciples.runSingleResponsibilityExample()
-            case .open_closed: break
+            case .open_closed: SolidPrinciples.runOpenClosedExample()
             case .liskov_substitution: break
             case .interface_segregation: break
             case .dependency_injection: break
