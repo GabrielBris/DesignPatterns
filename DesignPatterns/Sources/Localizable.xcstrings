@@ -358,6 +358,40 @@
         }
       }
     },
+    "solidprinciples.open_closed.description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Classes should be open for extension but closed for modification.\""
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“Las cla­ses deben estar abie­r­tas a la ex­te­n­sión pero ce­r­ra­das a la modificación.”"
+          }
+        }
+      }
+    },
+    "solidprinciples.open_closed.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open/Closed Principle"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Principio de Abierto/Cerrado"
+          }
+        }
+      }
+    },
     "solidprinciples.single_responsibility.description" : {
       "extractionState" : "manual",
       "localizations" : {

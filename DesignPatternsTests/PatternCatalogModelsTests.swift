@@ -70,7 +70,9 @@ final class PatternCatalogModelsTests: XCTestCase {
             case .single_responsibility:
                 descExpected = "\"Try to make each class responsible for a single part of the functionality provided by the software, and make that responsibility completely encapsulated by (you can also say hidden within) the class.\""
                 XCTAssertTrue(isPatternItemsMatching(itemKeys: principle, titleExpected: "Single Re­s­po­n­si­bi­li­ty Pri­n­ci­p­le", descExpected: descExpected))
-            case .open_closed: break
+            case .open_closed:
+                descExpected = "\"Classes should be open for extension but closed for modification.\""
+                XCTAssertTrue(isPatternItemsMatching(itemKeys: principle, titleExpected: "Open/Closed Principle", descExpected: descExpected))
             case .liskov_substitution: break
             case .interface_segregation: break
             case .dependency_injection: break
