@@ -23,6 +23,29 @@ enum SolidPrinciples {
         let order = Order(products: products, shippingType: Car(model: "gt8", type: "Truck"))
         print("Total: \(order.getTotal())")
     }
+    
+    static func runLiskovSubstitutionPrincipleExample() {
+        let range = 0...2
+        
+        // Read and write documents (Writable)
+        var writableDocuments: [WritableTextDocument] = []
+        range.forEach { index in
+            writableDocuments.append(WritableTextDocument(fileName: "file-\(index).txt"))
+        }
+        
+        let project1 = WritableProject(documents: writableDocuments)
+        project1.openAll()
+        try? project1.saveAll()
+        
+        // Read only documents (Non-writable)
+        var readOnlyDocuments: [ReadOnlyTextDocument] = []
+        range.forEach { index in
+            readOnlyDocuments.append(ReadOnlyTextDocument(fileName: "file-\(index).txt"))
+        }
+        
+        let project2 = Project(documents: readOnlyDocuments)
+        project2.openAll()
+    }
 }
 
 // MARK: - Single Responsibility Principle
@@ -166,3 +189,117 @@ private struct Order {
         products.reduce(0) { $0 + $1.weight }
     }
 }
+
+// MARK: - Liskov Substitution Principle
+// In the below commented classes, we are not following Liskov Substitution because we are breaking the original expected behavior from our parent class... So our client will experiment unexpected behaviors.
+/*
+private protocol DocumentProtocol {
+     var data: Data? { get }
+     var fileName: String { get }
+     
+     func open()
+     func save()
+}
+ 
+ private struct Project<D: DocumentProtocol> {
+     var documents = [D]()
+
+     init(documents: [D]) {
+         self.documents = documents
+     }
+     
+     func openAll() {
+         documents.forEach { document in
+             document.open()
+         }
+     }
+     
+     func saveAll() {
+         documents.forEach { document in
+             document.save()
+         }
+     }
+ }
+ 
+private class Document: DocumentProtocol {
+     var data: Data?
+     var fileName: String
+     
+     init(data: Data? = nil, fileName: String) {
+         self.data = data
+         self.fileName = fileName
+     }
+     
+     func open() {
+         print("\(fileName) is opened")
+     }
+     
+     func save() {
+         print("\(fileName) is saved")
+     }
+ }
+
+ private class ReadOnlyDocument: Document {
+     override func save() {
+         print("\(fileName) could not be saved, because it is read-only")
+     }
+ }
+*/
+
+// Our next classes are following Liskov Substitution Principle because we inverted our original approach, converting ReadOnlyDocument as our parent class
+private protocol Document {
+    func open()
+}
+
+private protocol WritableDocument: Document {
+    func save() throws
+}
+
+private struct Project<D: Document> {
+    let documents: [D]
+
+    func openAll() {
+        documents.forEach { $0.open() }
+    }
+}
+
+private struct WritableProject<D: WritableDocument> {
+    let documents: [D]
+
+    func saveAll() throws {
+        try documents.forEach { try $0.save() }
+    }
+
+    func openAll() {
+        documents.forEach { $0.open() }
+    }
+}
+
+private struct ReadOnlyTextDocument: Document {
+    let fileName: String
+    
+    init(fileName: String) {
+        self.fileName = fileName
+    }
+    
+    func open() {
+        print("\(fileName) is opened (read-only)")
+    }
+}
+
+private struct WritableTextDocument: WritableDocument {
+    let fileName: String
+    
+    init(fileName: String) {
+        self.fileName = fileName
+    }
+    
+    func open() {
+        print("\(fileName) is opened (writable)")
+    }
+    
+    func save() throws {
+        print("\(fileName) is saved")
+    }
+}
+
