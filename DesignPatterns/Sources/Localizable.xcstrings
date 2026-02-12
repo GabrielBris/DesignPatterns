@@ -358,6 +358,40 @@
         }
       }
     },
+    "solidprinciples.liskov_substitution.description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“When extending a class, remember that you should be able to pass objects of the subclasses in place of objects of the parent class, without breaking the client code.”\n\n- Basically: If `B` is a subtype of `A`, then you should be able to use an object of `B` anywhere an object of `A` is expected, without breaking the program.\n\nIn other words: a child class should be able to “substitute” the parent class without surprises."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“Al ex­te­n­der una clase, re­cue­r­da que debes tener la ca­pa­ci­dad de pasar ob­je­tos de las su­b­c­la­ses en lugar de ob­je­tos de la clase padre, sin de­s­co­m­po­ner el có­di­go cliente.”\n\n— Basicamente Si B es un subtipo de A, entonces deberías poder usar un objeto de B en cualquier lugar donde se espera A, sin romper el programa. O sea: una clase hija debe poder “sustituir” a la clase padre sin sorpresas."
+          }
+        }
+      }
+    },
+    "solidprinciples.liskov_substitution.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Liskov Substitution Principle"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Principio de sustitución de Liskov"
+          }
+        }
+      }
+    },
     "solidprinciples.open_closed.description" : {
       "extractionState" : "manual",
       "localizations" : {
