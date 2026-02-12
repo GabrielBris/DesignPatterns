@@ -73,7 +73,15 @@ final class PatternCatalogModelsTests: XCTestCase {
             case .open_closed:
                 descExpected = "\"Classes should be open for extension but closed for modification.\""
                 XCTAssertTrue(isPatternItemsMatching(itemKeys: principle, titleExpected: "Open/Closed Principle", descExpected: descExpected))
-            case .liskov_substitution: break
+            case .liskov_substitution:
+                descExpected = """
+                “When extending a class, remember that you should be able to pass objects of the subclasses in place of objects of the parent class, without breaking the client code.”
+
+                - Basically: If `B` is a subtype of `A`, then you should be able to use an object of `B` anywhere an object of `A` is expected, without breaking the program.
+
+                In other words: a child class should be able to “substitute” the parent class without surprises.
+                """
+                XCTAssertTrue(isPatternItemsMatching(itemKeys: principle, titleExpected: "Liskov Substitution Principle", descExpected: descExpected))
             case .interface_segregation: break
             case .dependency_injection: break
             }
