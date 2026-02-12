@@ -6,7 +6,7 @@
 //
 import Foundation
 
-class OOPPillarTopic {
+enum OOPPillarTopic {
     static func runAbstractionExample() {
         let airplane = Airplane(model: "Boeing 747", capacity: 200, color: "White")
         airplane.fly()
@@ -59,7 +59,7 @@ private struct Airplane {
 }
 
 // MARK: - Encapsulation
-protocol PersonProtocol {
+private protocol PersonProtocol {
     var name: String { get }
     var birthYear: Int { get }
     
@@ -81,18 +81,18 @@ private struct Person: PersonProtocol {
 }
 
 // MARK: - Inheritance & Polymorphism
-protocol LivingOrganism {
+private protocol LivingOrganism {
     var ´class´: String { get }
 }
 
-protocol Animal {
+private protocol Animal {
     var numberOfLegs: Int { get }
     var name: String { get }
     
     func makeSound()
 }
 
-struct Dog: LivingOrganism, Animal {
+private struct Dog: LivingOrganism, Animal {
     var ´class´: String
     var numberOfLegs: Int
     var name: String
@@ -102,7 +102,7 @@ struct Dog: LivingOrganism, Animal {
     }
 }
 
-struct Cat: LivingOrganism, Animal {
+private struct Cat: LivingOrganism, Animal {
     var ´class´: String
     var numberOfLegs: Int
     var name: String

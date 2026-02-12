@@ -1,0 +1,305 @@
+//
+//  solid_principles.swift
+//  DesignPatterns
+//
+//  Created by Gabriel Alejandro Briseño Alvarez on 10/02/26.
+//
+import Foundation
+
+enum SolidPrinciples {
+    static func runSingleResponsibilityExample() {
+        let gabs = Employee(name: "Gabs", username: "g20b092", daysWorked: 20, salaryPerDay: 10, employeeLevel: 1)
+        // print("This month I will get: $ \(gabs.getSalaryPerMonth())")
+
+        print("This month I will get: $ \(gabs.calculateSalaryThismMonth())")
+    }
+    
+    static func runOpenClosedExample() {
+        let products = [
+            Product(name: "Soda", weight: 0.6, price: 10),
+            Product(name: "Soda", weight: 0.6, price: 10)
+        ]
+        //let order = Order(products: products, shippingType: .ground)
+        let order = Order(products: products, shippingType: Car(model: "gt8", type: "Truck"))
+        print("Total: \(order.getTotal())")
+    }
+    
+    static func runLiskovSubstitutionPrincipleExample() {
+        let range = 0...2
+        
+        // Read and write documents (Writable)
+        var writableDocuments: [WritableTextDocument] = []
+        range.forEach { index in
+            writableDocuments.append(WritableTextDocument(fileName: "file-\(index).txt"))
+        }
+        
+        let project1 = WritableProject(documents: writableDocuments)
+        project1.openAll()
+        try? project1.saveAll()
+        
+        // Read only documents (Non-writable)
+        var readOnlyDocuments: [ReadOnlyTextDocument] = []
+        range.forEach { index in
+            readOnlyDocuments.append(ReadOnlyTextDocument(fileName: "file-\(index).txt"))
+        }
+        
+        let project2 = Project(documents: readOnlyDocuments)
+        project2.openAll()
+    }
+}
+
+// MARK: - Single Responsibility Principle
+
+// Multiple things that could change in the future, are living at the same entity.
+/*
+ private struct Employee {
+     let name: String
+     let username: String
+     let daysWorked: Int
+     let salaryPerDay: Double
+     let employeeLevel: Int
+     
+     func getSalaryPerMonth() -> Double {
+         let commissionPercent: Double
+         
+         switch employeeLevel {
+         case 1: commissionPercent = 1.05
+         case 2: commissionPercent = 1.10
+         case 3: commissionPercent = 1.15
+         default: commissionPercent = 1.0
+         }
+         
+         return (Double(daysWorked) * salaryPerDay * commissionPercent)
+     }
+ }
+ */
+
+// Splitting responsibilities:
+final class SalaryCalculator {
+    static let shared = SalaryCalculator()
+    
+    private init() { }
+    
+    func getSalaryPerMonth(_ employeeLevel: Int, _ daysWorked: Int, _ salaryPerDay: Double) -> Double {
+        let commissionPercent: Double
+        
+        switch employeeLevel {
+        case 1: commissionPercent = 1.05
+        case 2: commissionPercent = 1.10
+        case 3: commissionPercent = 1.15
+        default: commissionPercent = 1.0
+        }
+        
+        return (Double(daysWorked) * salaryPerDay * commissionPercent)
+    }
+}
+
+private struct Employee {
+    let name: String
+    let username: String
+    let daysWorked: Int
+    let salaryPerDay: Double
+    let employeeLevel: Int
+    
+    func calculateSalaryThismMonth() -> Double {
+        SalaryCalculator.shared.getSalaryPerMonth(employeeLevel, daysWorked, salaryPerDay)
+    }
+}
+
+// MARK: - Open/Closed Principle
+private struct Product {
+    let name: String
+    let weight: Double
+    let price: Double
+}
+
+// This gives the possibility to modify directly our Order, and we shouldn't convert as final, because we won't be able to extend it / subclass it.
+/*
+ private struct Order {
+     let products: [Product]
+     let shippingType: ShippingType
+     
+     enum ShippingType {
+         case ground
+         case air
+         case sea
+     }
+     
+     func getTotal() -> Double {
+         products.reduce(0) { $0 + $1.price } + getShippingCost()
+     }
+     
+     func getShippingCost() -> Double {
+         switch shippingType {
+         case .ground: // Free shipping on large orders, else $1.5 per kilo (max $10)
+             return products.count > 100 ? 0 : min(10, 1.5 * getTotalWeight())
+         case .air:
+             return min(30, 3 * getTotalWeight())
+         case .sea:
+             return min(20, 2 * getTotalWeight())
+         }
+     }
+     
+     private func getTotalWeight() -> Double {
+         products.reduce(0) { $0 + $1.weight }
+     }
+ }
+ */
+
+private protocol ShippingTypeProtocol {
+    func getShippingCost(for products: [Product], totalWeight: Double) -> Double
+}
+
+private class Ground: ShippingTypeProtocol {
+    fileprivate func getShippingCost(for products: [Product], totalWeight: Double) -> Double {
+        products.count > 100 ? 0 : min(10, 1.5 * totalWeight)
+    }
+}
+
+private class Car: Ground {
+    let model: String
+    let type: String
+    
+    init(model: String, type: String) {
+        self.model = model
+        self.type = type
+    }
+    
+    override func getShippingCost(for products: [Product], totalWeight: Double) -> Double {
+        // let's override our super class... maybe next time 😋
+        super.getShippingCost(for: products, totalWeight: totalWeight)
+    }
+}
+
+private class Air: ShippingTypeProtocol {
+    fileprivate func getShippingCost(for products: [Product], totalWeight: Double) -> Double {
+        min(30, 3 * totalWeight)
+    }
+}
+
+private struct Order {
+    let products: [Product]
+    let shippingType: ShippingTypeProtocol
+
+    func getTotal() -> Double {
+        products.reduce(0) { $0 + $1.price } + shippingType.getShippingCost(for: products, totalWeight: getTotalWeight())
+    }
+    
+    private func getTotalWeight() -> Double {
+        products.reduce(0) { $0 + $1.weight }
+    }
+}
+
+// MARK: - Liskov Substitution Principle
+// In the below commented classes, we are not following Liskov Substitution because we are breaking the original expected behavior from our parent class... So our client will experiment unexpected behaviors.
+/*
+private protocol DocumentProtocol {
+     var data: Data? { get }
+     var fileName: String { get }
+     
+     func open()
+     func save()
+}
+ 
+ private struct Project<D: DocumentProtocol> {
+     var documents = [D]()
+
+     init(documents: [D]) {
+         self.documents = documents
+     }
+     
+     func openAll() {
+         documents.forEach { document in
+             document.open()
+         }
+     }
+     
+     func saveAll() {
+         documents.forEach { document in
+             document.save()
+         }
+     }
+ }
+ 
+private class Document: DocumentProtocol {
+     var data: Data?
+     var fileName: String
+     
+     init(data: Data? = nil, fileName: String) {
+         self.data = data
+         self.fileName = fileName
+     }
+     
+     func open() {
+         print("\(fileName) is opened")
+     }
+     
+     func save() {
+         print("\(fileName) is saved")
+     }
+ }
+
+ private class ReadOnlyDocument: Document {
+     override func save() {
+         print("\(fileName) could not be saved, because it is read-only")
+     }
+ }
+*/
+
+// Our next classes are following Liskov Substitution Principle because we inverted our original approach, converting ReadOnlyDocument as our parent class
+private protocol Document {
+    func open()
+}
+
+private protocol WritableDocument: Document {
+    func save() throws
+}
+
+private struct Project<D: Document> {
+    let documents: [D]
+
+    func openAll() {
+        documents.forEach { $0.open() }
+    }
+}
+
+private struct WritableProject<D: WritableDocument> {
+    let documents: [D]
+
+    func saveAll() throws {
+        try documents.forEach { try $0.save() }
+    }
+
+    func openAll() {
+        documents.forEach { $0.open() }
+    }
+}
+
+private struct ReadOnlyTextDocument: Document {
+    let fileName: String
+    
+    init(fileName: String) {
+        self.fileName = fileName
+    }
+    
+    func open() {
+        print("\(fileName) is opened (read-only)")
+    }
+}
+
+private struct WritableTextDocument: WritableDocument {
+    let fileName: String
+    
+    init(fileName: String) {
+        self.fileName = fileName
+    }
+    
+    func open() {
+        print("\(fileName) is opened (writable)")
+    }
+    
+    func save() throws {
+        print("\(fileName) is saved")
+    }
+}
+
