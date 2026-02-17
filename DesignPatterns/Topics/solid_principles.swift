@@ -79,6 +79,14 @@ enum SolidPrinciples {
         dropbox.getFile("Test_file")
         dropbox.storeFile("configs.py")
     }
+    
+    static func runDependencyInversionPrincipleExample() {
+        //let budgedReport = BudgetReport(database: MySQLDatabase())
+
+        let budgedReport = BudgetReport(database: MongoDB())
+        budgedReport.open()
+        budgedReport.save()
+    }
 }
 
 // MARK: - Single Responsibility Principle
@@ -433,5 +441,96 @@ private struct Dropbox: CloudStorageProviderProtocol {
 
     func storeFile(_ name: String) {
         print("Created file: \(name)")
+    }
+}
+
+// MARK: - Dependency Inversion Principle
+// First example
+
+// This example violates DIP because the high-level module (BudgetReport)
+// depends directly on a low-level implementation detail (MySQLDatabase).
+// As a result, changing the database implementation (e.g., MySQL -> SQLite)
+// forces changes in BudgetReport. Both should depend on an abstraction (a protocol).
+
+/*
+ // Low level
+ private struct MySQLDatabase {
+     func insert(user: String) {
+         print("Inserting user: \(user)")
+     }
+     
+     func update(user: String) {
+         print("Updating user: \(user)")
+     }
+     
+     func delete(user: String) {
+         print("Deleting user: \(user)")
+     }
+ }
+
+ // High level
+ private struct BudgetReport {
+     let database: MySQLDatabase
+     
+     func open() {
+         print("Opened database!")
+     }
+
+     func save() {
+         print("Saved data!")
+     }
+ }
+ */
+
+// Second example
+// Low level
+private protocol DataBase {
+    func delete(user: String)
+    func insert(user: String)
+    func update(user: String)
+}
+
+private struct MySQLDB: DataBase {
+    func delete(user: String) {
+        print("Deleting user: \(user)")
+    }
+    
+    func insert(user: String) {
+        print("Inserting user: \(user)")
+    }
+
+    func update(user: String) {
+        print("Updating user: \(user)")
+    }
+}
+
+private struct MongoDB: DataBase {
+    func delete(user: String) {
+        print("Deleting user (different): \(user)")
+    }
+    
+    func insert(user: String) {
+        print("Inserting user (different): \(user)")
+    }
+
+    func update(user: String) {
+        print("Updating user (different): \(user)")
+    }
+}
+
+// High level
+private struct BudgetReport {
+    private let database: any DataBase
+    
+    init(database: any DataBase) {
+        self.database = database
+    }
+
+    func open() {
+        print("Opened database!")
+    }
+
+    func save() {
+        print("Saved data!")
     }
 }

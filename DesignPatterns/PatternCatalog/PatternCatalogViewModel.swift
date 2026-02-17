@@ -45,7 +45,7 @@ class PatternCatalogViewModel: PatternCatalogViewModelProtocol {
             case .open_closed: SolidPrinciples.runOpenClosedExample()
             case .liskov_substitution: SolidPrinciples.runLiskovSubstitutionPrincipleExample()
             case .interface_segregation: SolidPrinciples.runInterfaceSegregationPrincipleExample()
-            case .dependency_inversion: break
+            case .dependency_inversion: SolidPrinciples.runDependencyInversionPrincipleExample()
             }
         default: break
         }
