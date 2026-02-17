@@ -82,7 +82,13 @@ final class PatternCatalogModelsTests: XCTestCase {
                 In other words: a child class should be able to “substitute” the parent class without surprises.
                 """
                 XCTAssertTrue(isPatternItemsMatching(itemKeys: principle, titleExpected: "Liskov Substitution Principle", descExpected: descExpected))
-            case .interface_segregation: break
+            case .interface_segregation:
+                descExpected = """
+                “Clients should not be forced to depend on methods they do not use.  
+
+                According to the **Interface Segregation Principle (ISP)**, you should break down *fat* or *bloated* interfaces into smaller, more granular, and more specific ones. Clients should implement only the methods they actually need. Otherwise, a change to a *fat* interface can cause ripple effects and break even those clients that do not use the modified methods.”
+                """
+                XCTAssertTrue(isPatternItemsMatching(itemKeys: principle, titleExpected: "Interface Segregation Principle", descExpected: descExpected))
             case .dependency_injection: break
             }
         }

@@ -358,6 +358,40 @@
         }
       }
     },
+    "solidprinciples.interface_segregation.description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“Clients should not be forced to depend on methods they do not use.  \n\nAccording to the **Interface Segregation Principle (ISP)**, you should break down *fat* or *bloated* interfaces into smaller, more granular, and more specific ones. Clients should implement only the methods they actually need. Otherwise, a change to a *fat* interface can cause ripple effects and break even those clients that do not use the modified methods.”"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“No se debe fo­r­zar a los clie­n­tes a de­pe­n­der de mé­to­dos que no utilizan.\nSegún el pri­n­ci­pio de se­g­re­ga­ción de la in­te­r­faz, debes de­si­n­te­g­rar las in­te­r­fa­ces “grue­sas” hasta crear otras más de­ta­l­la­das y es­pe­cí­fi­cas. Los clie­n­tes deben im­p­le­me­n­tar úni­ca­me­n­te aque­l­los mé­to­dos que ne­ce­si­tan de ve­r­dad. De lo co­n­t­ra­rio, un ca­m­bio en una in­te­r­faz “grue­sa” de­s­co­m­po­n­d­rá in­c­lu­so clie­n­tes que no uti­li­zan los mé­to­dos cambiados.”"
+          }
+        }
+      }
+    },
+    "solidprinciples.interface_segregation.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Interface Segregation Principle"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Principio de Segregación de la interfaz"
+          }
+        }
+      }
+    },
     "solidprinciples.liskov_substitution.description" : {
       "extractionState" : "manual",
       "localizations" : {
