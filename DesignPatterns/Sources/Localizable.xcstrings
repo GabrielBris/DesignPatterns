@@ -335,7 +335,7 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Dependencia"
           }
         }
@@ -354,6 +354,193 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Relación entre objetos"
+          }
+        }
+      }
+    },
+    "solidprinciples.dependency_inversion.description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“High-level modules should not depend on low-level modules. Both should depend on abstractions. Abstractions should not depend on details. Details should depend on abstractions.”  \n\n— Your core business logic (high level) should not *know about* or be tightly coupled to concrete implementation details (low level). Instead, both should communicate through **contracts** (abstractions), which in Swift are typically **protocols**."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“Las cla­ses de alto nivel no deben de­pe­n­der de cla­ses de bajo nivel. Ambas deben de­pe­n­der de ab­s­t­ra­c­cio­nes. Las ab­s­t­ra­c­cio­nes no deben de­pe­n­der de de­ta­l­les. Los de­ta­l­les deben de­pe­n­der de ab­s­t­ra­c­cio­nes.”\n— Tu lógica importante (alto nivel) no debería “conocer” detalles concretos (bajo nivel).\nEn lugar de eso, ambos deberían hablar mediante contratos (abstracciones), en Swift  protocolos."
+          }
+        }
+      }
+    },
+    "solidprinciples.dependency_inversion.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dependency Inversion Principle"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Principio de inversión de la dependencia"
+          }
+        }
+      }
+    },
+    "solidprinciples.interface_segregation.description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“Clients should not be forced to depend on methods they do not use.  \n\nAccording to the **Interface Segregation Principle (ISP)**, you should break down *fat* or *bloated* interfaces into smaller, more granular, and more specific ones. Clients should implement only the methods they actually need. Otherwise, a change to a *fat* interface can cause ripple effects and break even those clients that do not use the modified methods.”"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“No se debe fo­r­zar a los clie­n­tes a de­pe­n­der de mé­to­dos que no utilizan.\nSegún el pri­n­ci­pio de se­g­re­ga­ción de la in­te­r­faz, debes de­si­n­te­g­rar las in­te­r­fa­ces “grue­sas” hasta crear otras más de­ta­l­la­das y es­pe­cí­fi­cas. Los clie­n­tes deben im­p­le­me­n­tar úni­ca­me­n­te aque­l­los mé­to­dos que ne­ce­si­tan de ve­r­dad. De lo co­n­t­ra­rio, un ca­m­bio en una in­te­r­faz “grue­sa” de­s­co­m­po­n­d­rá in­c­lu­so clie­n­tes que no uti­li­zan los mé­to­dos cambiados.”"
+          }
+        }
+      }
+    },
+    "solidprinciples.interface_segregation.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Interface Segregation Principle"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Principio de Segregación de la interfaz"
+          }
+        }
+      }
+    },
+    "solidprinciples.liskov_substitution.description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“When extending a class, remember that you should be able to pass objects of the subclasses in place of objects of the parent class, without breaking the client code.”\n\n- Basically: If `B` is a subtype of `A`, then you should be able to use an object of `B` anywhere an object of `A` is expected, without breaking the program.\n\nIn other words: a child class should be able to “substitute” the parent class without surprises."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“Al ex­te­n­der una clase, re­cue­r­da que debes tener la ca­pa­ci­dad de pasar ob­je­tos de las su­b­c­la­ses en lugar de ob­je­tos de la clase padre, sin de­s­co­m­po­ner el có­di­go cliente.”\n\n— Basicamente Si B es un subtipo de A, entonces deberías poder usar un objeto de B en cualquier lugar donde se espera A, sin romper el programa. O sea: una clase hija debe poder “sustituir” a la clase padre sin sorpresas."
+          }
+        }
+      }
+    },
+    "solidprinciples.liskov_substitution.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Liskov Substitution Principle"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Principio de sustitución de Liskov"
+          }
+        }
+      }
+    },
+    "solidprinciples.open_closed.description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Classes should be open for extension but closed for modification.\""
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“Las cla­ses deben estar abie­r­tas a la ex­te­n­sión pero ce­r­ra­das a la modificación.”"
+          }
+        }
+      }
+    },
+    "solidprinciples.open_closed.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open/Closed Principle"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Principio de Abierto/Cerrado"
+          }
+        }
+      }
+    },
+    "solidprinciples.single_responsibility.description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Try to make each class responsible for a single part of the functionality provided by the software, and make that responsibility completely encapsulated by (you can also say hidden within) the class.\""
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“In­te­n­ta hacer a cada clase re­s­po­n­sa­b­le de una única parte de la fu­n­cio­na­li­dad pro­po­r­cio­na­da por el so­f­t­wa­re, y haz que esa re­s­po­n­sa­bi­li­dad quede to­ta­l­me­n­te en­ca­p­su­la­da por (ta­m­bién pue­des decir es­co­n­di­da de­n­t­ro de) la clase.“"
+          }
+        }
+      }
+    },
+    "solidprinciples.single_responsibility.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Single Re­s­po­n­si­bi­li­ty Pri­n­ci­p­le"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pri­n­ci­pio de re­s­po­n­sa­bi­li­dad única"
+          }
+        }
+      }
+    },
+    "solidprinciples.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SOLID Principles"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Principios SOLID"
           }
         }
       }

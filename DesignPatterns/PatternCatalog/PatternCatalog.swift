@@ -31,6 +31,13 @@ struct PatternCatalog: Identifiable {
         var titleKey: String { "relationamongobjects.\(rawValue).title" }
         var descriptionKey: String { "relationamongobjects.\(rawValue).description" }
     }
+    
+    enum SOLIDPrinciples: String, CaseIterable, PatternItemKeys {
+        case single_responsibility, open_closed, liskov_substitution, interface_segregation, dependency_inversion
+
+        var titleKey: String { "solidprinciples.\(rawValue).title" }
+        var descriptionKey: String { "solidprinciples.\(rawValue).description" }
+    }
 }
 
 extension PatternCatalog: Equatable & Hashable {

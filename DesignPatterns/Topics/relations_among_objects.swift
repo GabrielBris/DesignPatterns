@@ -6,7 +6,7 @@
 //
 import Foundation
 
-class RelationAmongObjects {
+enum RelationAmongObjects {
     // Dependency: "Hey, can I borrow this for a sec?" (parameter)
     static func runDependenceExample() {
         let mockTaxDependency = MockTaxDependency(taxText: "+ tax")
@@ -37,24 +37,25 @@ class RelationAmongObjects {
     static func runCompositionExample() {
         var homeView: HomeView? = HomeView()
         homeView = nil
+        print("HomeView's description: ", homeView.debugDescription)
     }
 }
 
 
 // MARK: - Dependency
-protocol TaxDependency {
+private protocol TaxDependency {
     var taxText: String { get }
 
     func shouldShowTax() -> Bool
 }
 
-struct MockTaxDependency: TaxDependency {
+private struct MockTaxDependency: TaxDependency {
     let taxText: String
     
     func shouldShowTax() -> Bool { true }
 }
 
-struct ProductView {
+private struct ProductView {
     let name: String
     
     func setupTaxView(from dependency: TaxDependency) {
@@ -64,12 +65,12 @@ struct ProductView {
 }
 
 // MARK: - Agregation
-struct Book {
+private struct Book {
     let name: String
     let author: String
 }
 
-struct Library {
+private struct Library {
     let books: [Book]
     
     func displayBooks() {
@@ -80,7 +81,7 @@ struct Library {
 }
 
 // MARK: - Association
-struct ConcreteView {
+private struct ConcreteView {
     let taxDependency: TaxDependency
 
     func showTax() {
@@ -91,15 +92,15 @@ struct ConcreteView {
 }
 
 // MARK: - Composition
-protocol HomeViewProtocol {
+private protocol HomeViewProtocol {
     var description: String { get }
 }
 
-struct HomeViewModel: HomeViewProtocol {
+private struct HomeViewModel: HomeViewProtocol {
     var description: String
 }
 
-struct HomeView {
+private struct HomeView {
     private let viewModel: HomeViewProtocol = HomeViewModel(description: "This is the home view")
     
     init() {
