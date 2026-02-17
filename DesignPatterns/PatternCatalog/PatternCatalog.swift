@@ -33,7 +33,7 @@ struct PatternCatalog: Identifiable {
     }
     
     enum SOLIDPrinciples: String, CaseIterable, PatternItemKeys {
-        case single_responsibility, open_closed, liskov_substitution, interface_segregation, dependency_injection
+        case single_responsibility, open_closed, liskov_substitution, interface_segregation, dependency_inversion
 
         var titleKey: String { "solidprinciples.\(rawValue).title" }
         var descriptionKey: String { "solidprinciples.\(rawValue).description" }

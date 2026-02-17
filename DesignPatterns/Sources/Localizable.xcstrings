@@ -358,6 +358,40 @@
         }
       }
     },
+    "solidprinciples.dependency_inversion.description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“High-level modules should not depend on low-level modules. Both should depend on abstractions. Abstractions should not depend on details. Details should depend on abstractions.”  \n\n— Your core business logic (high level) should not *know about* or be tightly coupled to concrete implementation details (low level). Instead, both should communicate through **contracts** (abstractions), which in Swift are typically **protocols**."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“Las cla­ses de alto nivel no deben de­pe­n­der de cla­ses de bajo nivel. Ambas deben de­pe­n­der de ab­s­t­ra­c­cio­nes. Las ab­s­t­ra­c­cio­nes no deben de­pe­n­der de de­ta­l­les. Los de­ta­l­les deben de­pe­n­der de ab­s­t­ra­c­cio­nes.”\n— Tu lógica importante (alto nivel) no debería “conocer” detalles concretos (bajo nivel).\nEn lugar de eso, ambos deberían hablar mediante contratos (abstracciones), en Swift  protocolos."
+          }
+        }
+      }
+    },
+    "solidprinciples.dependency_inversion.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dependency Inversion Principle"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Principio de inversión de la dependencia"
+          }
+        }
+      }
+    },
     "solidprinciples.interface_segregation.description" : {
       "extractionState" : "manual",
       "localizations" : {

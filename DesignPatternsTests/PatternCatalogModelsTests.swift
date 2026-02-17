@@ -89,7 +89,13 @@ final class PatternCatalogModelsTests: XCTestCase {
                 According to the **Interface Segregation Principle (ISP)**, you should break down *fat* or *bloated* interfaces into smaller, more granular, and more specific ones. Clients should implement only the methods they actually need. Otherwise, a change to a *fat* interface can cause ripple effects and break even those clients that do not use the modified methods.”
                 """
                 XCTAssertTrue(isPatternItemsMatching(itemKeys: principle, titleExpected: "Interface Segregation Principle", descExpected: descExpected))
-            case .dependency_injection: break
+            case .dependency_inversion:
+                descExpected = """
+                “High-level modules should not depend on low-level modules. Both should depend on abstractions. Abstractions should not depend on details. Details should depend on abstractions.”  
+
+                — Your core business logic (high level) should not *know about* or be tightly coupled to concrete implementation details (low level). Instead, both should communicate through **contracts** (abstractions), which in Swift are typically **protocols**.
+                """
+                XCTAssertTrue(isPatternItemsMatching(itemKeys: principle, titleExpected: "Dependency Inversion Principle", descExpected: descExpected))
             }
         }
     }
