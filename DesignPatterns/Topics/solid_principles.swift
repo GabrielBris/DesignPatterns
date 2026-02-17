@@ -46,6 +46,39 @@ enum SolidPrinciples {
         let project2 = Project(documents: readOnlyDocuments)
         project2.openAll()
     }
+
+    static func runInterfaceSegregationPrincipleExample() {
+        // First example and commented
+        /*
+         var provider: CloudProviderProtocol
+         
+         provider = Amazon()
+         provider.createServer("CH")
+         print(provider.getCDNAddress())
+         provider.getFile("configs.py")
+         print(provider.listServers("CH"))
+         provider.storeFile("configs.py")
+         
+         provider = Dropbox()
+         provider.createServer("CH") // This is not implemented in Dropbox
+         let _ = provider.getCDNAddress() // This is not implemented in Dropbox
+         provider.getFile("Test_file")
+         print(provider.listServers("CH")) // This is not implemented in Dropbox
+         provider.storeFile("configs.py")
+         */
+        
+        // Second example
+        let amazon = Amazon()
+        amazon.createServer("CH")
+        print(amazon.getCDNAddress())
+        amazon.getFile("configs.py")
+        print(amazon.listServers("CH"))
+        amazon.storeFile("configs.py")
+        
+        let dropbox = Dropbox()
+        dropbox.getFile("Test_file")
+        dropbox.storeFile("configs.py")
+    }
 }
 
 // MARK: - Single Responsibility Principle
@@ -303,3 +336,102 @@ private struct WritableTextDocument: WritableDocument {
     }
 }
 
+// MARK: - Interface Segregation Principle
+// This example forces every cloud provider to implement all methods in CloudProviderProtocol, even when they do not support those capabilities.
+ 
+/*
+ private protocol CloudProviderProtocol {
+     func createServer(_ region: String)
+     func getCDNAddress() -> String
+     func getFile(_ name: String)
+     func listServers(_ region: String) -> [String]
+     func storeFile(_ name: String)
+ }
+
+ private struct Amazon: CloudProviderProtocol {
+     func createServer(_ region: String) {
+         print("Creating server in \(region)")
+     }
+     
+     func getCDNAddress() -> String {
+         "This is a test"
+     }
+     
+     func getFile(_ name: String) {
+         print("Getting file: \(name)")
+     }
+     
+     func listServers(_ region: String) -> [String] {
+         [String](repeating: "", count: 5)
+     }
+     
+     func storeFile(_ name: String) {
+         print("Created file: \(name)")
+     }
+ }
+
+ private struct Dropbox: CloudProviderProtocol {
+     // Not necessary
+     func createServer(_ region: String) { }
+     
+     // Not necessary
+     func getCDNAddress() -> String { "" }
+
+     func getFile(_ name: String) {
+         print("Getting file: \(name)")
+     }
+
+     // Not necessary
+     func listServers(_ region: String) -> [String] { [String]() }
+     
+     func storeFile(_ name: String) {
+         print("Created file: \(name)")
+     }
+ }
+ */
+
+private protocol CloudHostingProviderProtocol {
+    func createServer(_ region: String)
+    func listServers(_ region: String) -> [String]
+}
+
+private protocol CDNProviderProtocol {
+    func getCDNAddress() -> String
+}
+
+private protocol CloudStorageProviderProtocol {
+    func getFile(_ name: String)
+    func storeFile(_ name: String)
+}
+
+private struct Amazon: CloudHostingProviderProtocol, CDNProviderProtocol, CloudStorageProviderProtocol {
+    func createServer(_ region: String) {
+        print("Creating server in \(region)")
+    }
+    
+    func getCDNAddress() -> String {
+        "This is a test"
+    }
+    
+    func getFile(_ name: String) {
+        print("Getting file: \(name)")
+    }
+    
+    func listServers(_ region: String) -> [String] {
+        [String](repeating: "", count: 5)
+    }
+    
+    func storeFile(_ name: String) {
+        print("Created file: \(name)")
+    }
+}
+
+private struct Dropbox: CloudStorageProviderProtocol {
+    func getFile(_ name: String) {
+        print("Getting file: \(name)")
+    }
+
+    func storeFile(_ name: String) {
+        print("Created file: \(name)")
+    }
+}
