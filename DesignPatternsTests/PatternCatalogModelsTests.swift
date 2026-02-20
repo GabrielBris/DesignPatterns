@@ -76,26 +76,51 @@ final class PatternCatalogModelsTests: XCTestCase {
             case .liskov_substitution:
                 descExpected = """
                 “When extending a class, remember that you should be able to pass objects of the subclasses in place of objects of the parent class, without breaking the client code.”
-
+                
                 - Basically: If `B` is a subtype of `A`, then you should be able to use an object of `B` anywhere an object of `A` is expected, without breaking the program.
-
+                
                 In other words: a child class should be able to “substitute” the parent class without surprises.
                 """
                 XCTAssertTrue(isPatternItemsMatching(itemKeys: principle, titleExpected: "Liskov Substitution Principle", descExpected: descExpected))
             case .interface_segregation:
                 descExpected = """
                 “Clients should not be forced to depend on methods they do not use.  
-
+                
                 According to the **Interface Segregation Principle (ISP)**, you should break down *fat* or *bloated* interfaces into smaller, more granular, and more specific ones. Clients should implement only the methods they actually need. Otherwise, a change to a *fat* interface can cause ripple effects and break even those clients that do not use the modified methods.”
                 """
                 XCTAssertTrue(isPatternItemsMatching(itemKeys: principle, titleExpected: "Interface Segregation Principle", descExpected: descExpected))
             case .dependency_inversion:
                 descExpected = """
                 “High-level modules should not depend on low-level modules. Both should depend on abstractions. Abstractions should not depend on details. Details should depend on abstractions.”  
-
+                
                 — Your core business logic (high level) should not *know about* or be tightly coupled to concrete implementation details (low level). Instead, both should communicate through **contracts** (abstractions), which in Swift are typically **protocols**.
                 """
                 XCTAssertTrue(isPatternItemsMatching(itemKeys: principle, titleExpected: "Dependency Inversion Principle", descExpected: descExpected))
+            }
+        }
+        
+        // Design Patterns Catlog
+        patternCatalog = PatternData.design_patterns_catalog
+        patternCatalogTitle = localized(patternCatalog.title)
+        
+        XCTAssertEqual(patternCatalogTitle, "The design patterns catalog")
+        PatternCatalog.DesignPatterns.allCases.forEach { pattern in
+            switch pattern {
+                case .creational_design_patterns:
+                XCTAssertEqual(localized(pattern.titleKey), "Creational design patterns")
+                switch pattern.subtopics {
+                default: break
+                }
+            case .structural_design_patterns:
+                XCTAssertEqual(localized(pattern.titleKey), "Structural design patterns")
+                switch pattern.subtopics {
+                default: break
+                }
+            case .behavioral_design_patterns:
+                XCTAssertEqual(localized(pattern.titleKey), "Behavioral design patterns")
+                switch pattern.subtopics {
+                default: break
+                }
             }
         }
     }
@@ -103,11 +128,12 @@ final class PatternCatalogModelsTests: XCTestCase {
 }
 
 private extension PatternCatalogModelsTests {
-    func isPatternItemsMatching(itemKeys: PatternItemKeys, titleExpected: String, descExpected: String) -> Bool {
+    func isPatternItemsMatching(itemKeys: PatternItemKeys, titleExpected: String, subtitleExpected: String = "", descExpected: String) -> Bool {
         let title = localized(itemKeys.titleKey)
+        let subtitle = localized(itemKeys.subtitleKey)
         let desc = localized(itemKeys.descriptionKey)
 
-        return title == titleExpected && desc == descExpected
+        return title == titleExpected && subtitle == subtitleExpected && desc == descExpected
     }
     
     func localized(_ key: String, bundle: Bundle = .main) -> String {

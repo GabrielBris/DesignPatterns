@@ -9,8 +9,16 @@
 import Foundation
 
 protocol PatternItemKeys {
-    var titleKey: String { get }
     var descriptionKey: String { get }
+    var titleKey: String { get }
+    var subtopics: [any PatternItemKeys] { get }
+    var subtitleKey: String { get }
+}
+
+extension PatternItemKeys {
+    var descriptionKey: String { "" }
+    var subtopics: [any PatternItemKeys] { [] }
+    var subtitleKey: String { "" }
 }
 
 struct PatternCatalog: Identifiable {
@@ -37,6 +45,24 @@ struct PatternCatalog: Identifiable {
 
         var titleKey: String { "solidprinciples.\(rawValue).title" }
         var descriptionKey: String { "solidprinciples.\(rawValue).description" }
+    }
+
+    enum DesignPatterns: String, CaseIterable, PatternItemKeys {
+        case creational_design_patterns, structural_design_patterns, behavioral_design_patterns
+        
+        var titleKey: String { "designpatterns.\(rawValue).title" }
+        var subtopics: [any PatternItemKeys] { Pattern.allCases }
+        
+        enum Pattern: String, CaseIterable, PatternItemKeys {
+            case factory_method, abstract_factory, builder, prototype, singleton
+            
+            var titleKey: String { "pattern.\(rawValue).title" }
+            var descriptionKey: String {
+                switch self {
+                default: return "Test"
+                }
+            }
+        }
     }
 }
 

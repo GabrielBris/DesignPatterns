@@ -20,9 +20,10 @@ class PatternCatalogViewModel: PatternCatalogViewModelProtocol {
     private(set) var sections: [PatternCatalog] = [
         PatternData.poo_pillars,
         PatternData.relation_among_objects,
-        PatternData.solid_principles
+        PatternData.solid_principles,
+        PatternData.design_patterns_catalog
     ]
-    
+
     func tryMeButtonTapped(at pattern: any PatternItemKeys) {
         switch pattern {
         case let poo_pillars as PatternCatalog.POOPillar:

@@ -18,7 +18,7 @@ struct PatternCatalogView: View {
                 List(viewModel.sections) { section in
                     Section {
                         ForEach(section.topics, id: \.titleKey) { topic in
-                            PatternCatalogCell(title: topic.titleKey, description: topic.descriptionKey) {
+                            PatternCatalogCell(topic: topic) {
                                 viewModel.tryMeButtonTapped(at: topic)
                             }
                         }
@@ -36,22 +36,38 @@ struct PatternCatalogView: View {
 }
 
 private struct PatternCatalogCell: View {
-    let title: String
-    let description: String
+    let topic: any PatternItemKeys
     let onButtonTap: () -> Void
     
     var body: some View {
-        DisclosureGroup(LocalizedStringKey(title)) {
-            VStack {
-                Text(LocalizedStringKey(description))
-                HStack {
-                    Spacer()
-                    Button("patterncatalog.cell.trymebutton") {
-                        onButtonTap()
+        DisclosureGroup(LocalizedStringKey(topic.titleKey)) {
+            if topic.subtopics.isEmpty {
+                PatternDescriptionView(description: topic.descriptionKey, onButtonTap: onButtonTap)
+            } else {
+                ForEach(topic.subtopics, id: \.titleKey) { subtopic in
+                    DisclosureGroup(LocalizedStringKey(subtopic.titleKey)) {
+                        PatternDescriptionView(description: topic.descriptionKey, onButtonTap: onButtonTap)
                     }
-                    .buttonStyle(.automatic)
-                    .foregroundStyle(Color.green)
                 }
+            }
+        }
+    }
+}
+
+private struct PatternDescriptionView: View {
+    let description: String
+    let onButtonTap: () -> Void
+
+    var body: some View {
+        VStack {
+            Text(LocalizedStringKey(description))
+            HStack {
+                Spacer()
+                Button("patterncatalog.cell.trymebutton") {
+                    onButtonTap()
+                }
+                .buttonStyle(.automatic)
+                .foregroundStyle(Color.green)
             }
         }
     }
