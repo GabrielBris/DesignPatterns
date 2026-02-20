@@ -23,8 +23,15 @@ extension PatternItemKeys {
 
 struct PatternCatalog: Identifiable {
     let id = UUID()
-    let title: String
-    let topics: [any PatternItemKeys]
+    var description: String
+    var title: String
+    var topics: [any PatternItemKeys]
+    
+    init(description: String = "", title: String, topics: [any PatternItemKeys]) {
+        self.description = description
+        self.title = title
+        self.topics = topics
+    }
 
     enum POOPillar: String, CaseIterable, PatternItemKeys {
         case abstraction, encapsulation, inheritance, polymorphism

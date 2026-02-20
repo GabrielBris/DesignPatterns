@@ -18,7 +18,7 @@ struct PatternCatalogView: View {
                 List(viewModel.sections) { section in
                     Section {
                         ForEach(section.topics, id: \.titleKey) { topic in
-                            PatternCatalogCell(topic: topic) {
+                            PatternCatalogCell(topic: topic, description: section.description) {
                                 viewModel.tryMeButtonTapped(at: topic)
                             }
                         }
@@ -37,6 +37,7 @@ struct PatternCatalogView: View {
 
 private struct PatternCatalogCell: View {
     let topic: any PatternItemKeys
+    var description: String = ""
     let onButtonTap: () -> Void
     
     var body: some View {
@@ -44,11 +45,22 @@ private struct PatternCatalogCell: View {
             if topic.subtopics.isEmpty {
                 PatternDescriptionView(description: topic.descriptionKey, onButtonTap: onButtonTap)
             } else {
-                ForEach(topic.subtopics, id: \.titleKey) { subtopic in
-                    DisclosureGroup(LocalizedStringKey(subtopic.titleKey)) {
-                        PatternDescriptionView(description: topic.descriptionKey, onButtonTap: onButtonTap)
-                    }
-                }
+                SubtopicPatternDescriptionView(topic: topic, description: description, onButtonTap: onButtonTap)
+            }
+        }
+    }
+}
+
+private struct SubtopicPatternDescriptionView: View {
+    let topic: any PatternItemKeys
+    let description: String
+    let onButtonTap: () -> Void
+    
+    var body: some View {
+        Text(LocalizedStringKey(description))
+        ForEach(topic.subtopics, id: \.titleKey) { subtopic in
+            DisclosureGroup(LocalizedStringKey(subtopic.titleKey)) {
+                PatternDescriptionView(description: subtopic.descriptionKey, onButtonTap: onButtonTap)
             }
         }
     }

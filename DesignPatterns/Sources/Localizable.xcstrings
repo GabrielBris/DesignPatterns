@@ -52,6 +52,23 @@
         }
       }
     },
+    "designpatterns.description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“Creational patterns provide various object-creation mechanisms that increase the flexibility and reusability of existing code.”"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“Los pa­t­ro­nes crea­cio­na­les pro­po­r­cio­nan va­rios me­ca­ni­s­mos de crea­ción de ob­je­tos que in­c­re­me­n­tan la fle­xi­bi­li­dad y la re­uti­li­za­ción del có­di­go existente.”"
+          }
+        }
+      }
+    },
     "designpatterns.structural_design_patterns.title" : {
       "extractionState" : "manual",
       "localizations" : {
