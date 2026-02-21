@@ -15,11 +15,11 @@ final class PatternCatalogModelsTests: XCTestCase {
         var patternCatalog: PatternCatalog
         var patternCatalogTitle: String
         var descExpected: String = ""
-        
+
         // POO Pillar
         patternCatalog = PatternData.poo_pillars
-        patternCatalogTitle = localized(patternCatalog.title)
-        
+        patternCatalogTitle = localized(patternCatalog.headerTitle)
+
         XCTAssertEqual(patternCatalogTitle, "The pillars of the OOP")
         PatternCatalog.POOPillar.allCases.forEach { pillar in
             switch pillar {
@@ -37,11 +37,11 @@ final class PatternCatalogModelsTests: XCTestCase {
                 XCTAssertTrue(isPatternItemsMatching(itemKeys: pillar, titleExpected: "Polymorphism", descExpected: descExpected))
             }
         }
-        
+
         // Relation among objects
         patternCatalog = PatternData.relation_among_objects
-        patternCatalogTitle = localized(patternCatalog.title)
-        
+        patternCatalogTitle = localized(patternCatalog.headerTitle)
+
         XCTAssertEqual(patternCatalogTitle, "Relation among objects")
         PatternCatalog.RelationAmongObjects.allCases.forEach { relationType in
             switch relationType {
@@ -59,11 +59,11 @@ final class PatternCatalogModelsTests: XCTestCase {
                 XCTAssertTrue(isPatternItemsMatching(itemKeys: relationType, titleExpected: "Composition", descExpected: descExpected))
             }
         }
-        
+
         // SOLID
         patternCatalog = PatternData.solid_principles
-        patternCatalogTitle = localized(patternCatalog.title)
-        
+        patternCatalogTitle = localized(patternCatalog.headerTitle)
+
         XCTAssertEqual(patternCatalogTitle, "SOLID Principles")
         PatternCatalog.SOLIDPrinciples.allCases.forEach { principle in
             switch principle {
@@ -98,16 +98,19 @@ final class PatternCatalogModelsTests: XCTestCase {
                 XCTAssertTrue(isPatternItemsMatching(itemKeys: principle, titleExpected: "Dependency Inversion Principle", descExpected: descExpected))
             }
         }
-        
+
         // Design Patterns Catlog
         patternCatalog = PatternData.design_patterns_catalog
-        patternCatalogTitle = localized(patternCatalog.title)
-        
+        patternCatalogTitle = localized(patternCatalog.headerTitle)
+
         XCTAssertEqual(patternCatalogTitle, "The design patterns catalog")
         PatternCatalog.DesignPatterns.allCases.forEach { pattern in
             switch pattern {
                 case .creational_design_patterns:
-                XCTAssertEqual(localized(pattern.titleKey), "Creational design patterns")
+                descExpected = """
+                    “Creational patterns provide various object-creation mechanisms that increase the flexibility and reusability of existing code.”
+                    """
+                XCTAssertTrue(isPatternItemsMatching(itemKeys: pattern, titleExpected: "Creational design patterns", descExpected: descExpected))
                 switch pattern.subtopics {
                 default: break
                 }
@@ -124,18 +127,16 @@ final class PatternCatalogModelsTests: XCTestCase {
             }
         }
     }
-
 }
 
 private extension PatternCatalogModelsTests {
     func isPatternItemsMatching(itemKeys: PatternItemKeys, titleExpected: String, subtitleExpected: String = "", descExpected: String) -> Bool {
         let title = localized(itemKeys.titleKey)
-        let subtitle = localized(itemKeys.subtitleKey)
         let desc = localized(itemKeys.descriptionKey)
 
-        return title == titleExpected && subtitle == subtitleExpected && desc == descExpected
+        return title == titleExpected && desc == descExpected
     }
-    
+
     func localized(_ key: String, bundle: Bundle = .main) -> String {
         String(localized: .init(key), bundle: bundle)
     }
