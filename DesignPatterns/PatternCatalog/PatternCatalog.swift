@@ -12,26 +12,17 @@ protocol PatternItemKeys {
     var descriptionKey: String { get }
     var titleKey: String { get }
     var subtopics: [any PatternItemKeys] { get }
-    var subtitleKey: String { get }
 }
 
 extension PatternItemKeys {
     var descriptionKey: String { "" }
     var subtopics: [any PatternItemKeys] { [] }
-    var subtitleKey: String { "" }
 }
 
 struct PatternCatalog: Identifiable {
     let id = UUID()
-    var description: String
-    var title: String
-    var topics: [any PatternItemKeys]
-    
-    init(description: String = "", title: String, topics: [any PatternItemKeys]) {
-        self.description = description
-        self.title = title
-        self.topics = topics
-    }
+    let headerTitle: String
+    let topics: [any PatternItemKeys]
 
     enum POOPillar: String, CaseIterable, PatternItemKeys {
         case abstraction, encapsulation, inheritance, polymorphism
@@ -39,14 +30,14 @@ struct PatternCatalog: Identifiable {
         var titleKey: String { "pillars.\(rawValue).title" }
         var descriptionKey: String { "pillars.\(rawValue).description" }
     }
-    
+
     enum RelationAmongObjects: String, CaseIterable, PatternItemKeys {
         case dependence, aggregation, composition, association
-        
+
         var titleKey: String { "relationamongobjects.\(rawValue).title" }
         var descriptionKey: String { "relationamongobjects.\(rawValue).description" }
     }
-    
+
     enum SOLIDPrinciples: String, CaseIterable, PatternItemKeys {
         case single_responsibility, open_closed, liskov_substitution, interface_segregation, dependency_inversion
 
@@ -56,13 +47,15 @@ struct PatternCatalog: Identifiable {
 
     enum DesignPatterns: String, CaseIterable, PatternItemKeys {
         case creational_design_patterns, structural_design_patterns, behavioral_design_patterns
-        
+
         var titleKey: String { "designpatterns.\(rawValue).title" }
+        var descriptionKey: String { "designpatterns.creational_design_patterns.description" }
+
         var subtopics: [any PatternItemKeys] { Pattern.allCases }
-        
+
         enum Pattern: String, CaseIterable, PatternItemKeys {
             case factory_method, abstract_factory, builder, prototype, singleton
-            
+
             var titleKey: String { "pattern.\(rawValue).title" }
             var descriptionKey: String {
                 switch self {
@@ -77,7 +70,7 @@ extension PatternCatalog: Equatable & Hashable {
     static func == (lhs: PatternCatalog, rhs: PatternCatalog) -> Bool {
         lhs.id == rhs.id
     }
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }

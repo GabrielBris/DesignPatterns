@@ -18,12 +18,12 @@ struct PatternCatalogView: View {
                 List(viewModel.sections) { section in
                     Section {
                         ForEach(section.topics, id: \.titleKey) { topic in
-                            PatternCatalogCell(topic: topic, description: section.description) {
+                            PatternCatalogCell(topic: topic) {
                                 viewModel.tryMeButtonTapped(at: topic)
                             }
                         }
                     } header: {
-                        Text(LocalizedStringKey(section.title))
+                        Text(LocalizedStringKey(section.headerTitle))
                     }
                 }
                 .navigationTitle("patterncatalog.title")
@@ -37,15 +37,14 @@ struct PatternCatalogView: View {
 
 private struct PatternCatalogCell: View {
     let topic: any PatternItemKeys
-    var description: String = ""
     let onButtonTap: () -> Void
-    
+
     var body: some View {
         DisclosureGroup(LocalizedStringKey(topic.titleKey)) {
             if topic.subtopics.isEmpty {
                 PatternDescriptionView(description: topic.descriptionKey, onButtonTap: onButtonTap)
             } else {
-                SubtopicPatternDescriptionView(topic: topic, description: description, onButtonTap: onButtonTap)
+                SubtopicPatternDescriptionView(topic: topic, onButtonTap: onButtonTap)
             }
         }
     }
@@ -53,11 +52,10 @@ private struct PatternCatalogCell: View {
 
 private struct SubtopicPatternDescriptionView: View {
     let topic: any PatternItemKeys
-    let description: String
     let onButtonTap: () -> Void
-    
+
     var body: some View {
-        Text(LocalizedStringKey(description))
+        Text(LocalizedStringKey(topic.descriptionKey))
         ForEach(topic.subtopics, id: \.titleKey) { subtopic in
             DisclosureGroup(LocalizedStringKey(subtopic.titleKey)) {
                 PatternDescriptionView(description: subtopic.descriptionKey, onButtonTap: onButtonTap)
